@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import '../widgets/header.dart';
-import '../widgets/release_carousel.dart';
-import '../dummy_data.dart';
-import '../widgets/history_button.dart';
 
-class Releases_Screen extends StatelessWidget {
-  final dummyReleases = DummyReleases;
+import '../dummy_data.dart';
+import '../widgets/releases_screen/header.dart';
+import '../widgets/releases_screen/history_button.dart';
+import '../widgets/releases_screen/release_carousel.dart';
+
+class Releases extends StatelessWidget {
+  static const routeName = "/";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
             vertical: 30,
           ),
           child: Column(
@@ -20,11 +21,10 @@ class Releases_Screen extends StatelessWidget {
               Header(
                 releaseCount: dummyReleases.length,
               ),
-              Spacer(),
-              Release_Carousel(),
-              Spacer(),
-              HistoryButton(),
-              Spacer(),
+              const Spacer(),
+              const ReleaseCarousel(),
+              const Spacer(),
+              const HistoryButton(),
             ],
           ),
         ),

@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 
-import '../constraints.dart';
+import '../../constraints.dart';
 
 class ReleaseInfo extends StatelessWidget {
   const ReleaseInfo({
     Key? key,
-    this.title,
-    this.artist,
-    this.albumArt,
-    this.trackCount,
+    required this.title,
+    required this.artist,
+    required this.albumArt,
+    required this.trackCount,
   }) : super(key: key);
 
-  final title;
-  final artist;
-  final albumArt;
-  final trackCount;
+  final String title;
+  final String artist;
+  final String albumArt;
+  final int trackCount;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             height: 350,
-            margin: EdgeInsets.symmetric(vertical: 9),
-            padding: EdgeInsets.all(15),
+            margin: const EdgeInsets.symmetric(vertical: 9),
+            padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
@@ -36,15 +36,15 @@ class ReleaseInfo extends StatelessWidget {
             ),
             alignment: Alignment.bottomRight,
             child: Container(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               alignment: Alignment.centerRight,
               height: 40,
               width: 40,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: kAccentGreen,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.play_arrow_rounded,
                 color: Colors.white,
               ),
@@ -65,7 +65,7 @@ class ReleaseInfo extends StatelessWidget {
                 .copyWith(fontSize: 18, height: 1.3),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 7),
+            padding: const EdgeInsets.symmetric(vertical: 7),
             child: Row(
               children: [
                 _buildInfoContainer("Album", kAccentBlue),
@@ -81,15 +81,16 @@ class ReleaseInfo extends StatelessWidget {
 
 Container _buildInfoContainer(String text, Color color) {
   return Container(
-    margin: EdgeInsets.only(right: 15),
-    padding: EdgeInsets.symmetric(vertical: 3, horizontal: 6),
+    margin: const EdgeInsets.only(right: 15),
+    padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(50),
       color: color,
     ),
     child: Text(
       text,
-      style: TextStyle(fontFamily: "DM_Sans", fontWeight: FontWeight.w700),
+      style:
+          const TextStyle(fontFamily: "DM_Sans", fontWeight: FontWeight.w700),
     ),
   );
 }

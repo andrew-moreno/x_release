@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'screens/releases_screen.dart';
 import 'constraints.dart';
+import 'screens/history.dart';
+import 'screens/releases_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,13 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(392.73, 759.27),
+      designSize: const Size(392.73, 759.27),
       builder: () => MaterialApp(
-        home: Releases_Screen(),
         theme: ThemeData(
           backgroundColor: kBackgroundColor,
           canvasColor: kBackgroundColor,
-          textTheme: TextTheme(
+          textTheme: const TextTheme(
             headline4: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w600,
@@ -39,6 +39,10 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
+        routes: {
+          Releases.routeName: (ctx) => Releases(),
+          History.routeName: (ctx) => History()
+        },
       ),
     );
   }

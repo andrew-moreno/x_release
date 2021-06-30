@@ -1,6 +1,6 @@
 import 'models/music.dart';
 
-const DummyReleases = const [
+const dummyReleases = [
   Music(
     title: "Bcos U Will Never B Free",
     artist: "Rex Orange County",

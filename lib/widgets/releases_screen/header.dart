@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:x_release/constraints.dart';
 
 class Header extends StatelessWidget {
-  const Header({Key? key, this.releaseCount}) : super(key: key);
-  final releaseCount;
+  const Header({Key? key, required this.releaseCount}) : super(key: key);
+  final int releaseCount;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 60),
+      padding: const EdgeInsets.symmetric(horizontal: 60),
       child: Column(
         children: [
           Row(
@@ -24,10 +24,10 @@ class Header extends StatelessWidget {
                 " Releases",
                 style: Theme.of(context).textTheme.headline4,
               ),
-              Spacer(),
+              const Spacer(),
               GestureDetector(
                 onTap: () {},
-                child: Icon(
+                child: const Icon(
                   Icons.settings,
                   color: Colors.white,
                   size: 30,
@@ -37,7 +37,7 @@ class Header extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.centerLeft,
-            child: Container(
+            child: SizedBox(
               width: 200,
               child: Text(
                 "New songs from Rex Orange County, Sam Evian, and Jaden",
