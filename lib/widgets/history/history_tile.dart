@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HistoryReleaseTile extends StatelessWidget {
-  const HistoryReleaseTile({
+class HistoryTile extends StatelessWidget {
+  const HistoryTile({
     Key? key,
     required this.title,
     required this.artist,

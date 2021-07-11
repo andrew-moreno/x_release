@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:x_release/widgets/history/release_info.dart';
+import 'package:x_release/widgets/history/history_tile.dart';
 
 import '../constraints.dart';
 import '../dummy_data.dart';
@@ -30,19 +30,20 @@ class History extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                  itemCount: dummyReleases.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding:
-                          const EdgeInsets.only(left: 20, right: 20, top: 20),
-                      child: HistoryReleaseTile(
-                        title: dummyReleases[index].title,
-                        artist: dummyReleases[index].artist,
-                        albumArt: dummyReleases[index].albumArt,
-                        releaseDate: "June 10",
-                      ),
-                    );
-                  }),
+                itemCount: dummyReleases.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, top: 20),
+                    child: HistoryTile(
+                      title: dummyReleases[index].title,
+                      artist: dummyReleases[index].artist,
+                      albumArt: dummyReleases[index].albumArt,
+                      releaseDate: dummyReleases[index].releaseDate,
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),

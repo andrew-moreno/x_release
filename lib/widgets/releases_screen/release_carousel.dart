@@ -16,13 +16,12 @@ class ReleaseCarousel extends StatelessWidget {
       ),
       itemCount: dummyReleases.length,
       itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-          Container(
-        child: ReleaseInfo(
-          title: dummyReleases[itemIndex].title,
-          artist: dummyReleases[itemIndex].artist,
-          albumArt: dummyReleases[itemIndex].albumArt,
-          trackCount: dummyReleases[itemIndex].trackCount,
-        ),
+          ReleaseInfo(
+        id: dummyReleases[itemIndex].id,
+        title: dummyReleases[itemIndex].title,
+        artist: dummyReleases[itemIndex].artist,
+        albumArt: dummyReleases[itemIndex].albumArt,
+        tracks: dummyReleases[itemIndex].tracks,
       ),
     );
   }

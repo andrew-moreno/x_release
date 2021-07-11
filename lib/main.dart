@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'constraints.dart';
+import 'dummy_data.dart';
 import 'screens/history.dart';
+import 'screens/release_details.dart';
 import 'screens/releases_screen.dart';
 
 void main() {
@@ -17,8 +19,8 @@ class MyApp extends StatelessWidget {
       designSize: const Size(392.73, 759.27),
       builder: () => MaterialApp(
         theme: ThemeData(
-          backgroundColor: kBackgroundColor,
-          canvasColor: kBackgroundColor,
+          backgroundColor: kDarkBackgroundColor,
+          canvasColor: kDarkBackgroundColor,
           textTheme: const TextTheme(
             headline4: TextStyle(
               fontFamily: "Poppins",
@@ -41,7 +43,8 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           Releases.routeName: (ctx) => Releases(),
-          History.routeName: (ctx) => History()
+          History.routeName: (ctx) => History(),
+          ReleaseDetails.routeName: (ctx) => ReleaseDetails()
         },
       ),
     );
