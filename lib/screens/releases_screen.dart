@@ -22,7 +22,7 @@ class Releases extends StatelessWidget {
                 releaseCount: dummyReleases.length,
               ),
               const Spacer(),
-              const ReleaseCarousel(),
+              ReleaseCarousel(),
               const Spacer(),
               const HistoryButton(),
             ],
