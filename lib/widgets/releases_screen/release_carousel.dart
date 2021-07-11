@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../dummy_data.dart';
-import 'release_info.dart';
+import 'release.dart';
 
 class ReleaseCarousel extends StatelessWidget {
   const ReleaseCarousel({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class ReleaseCarousel extends StatelessWidget {
       ),
       itemCount: dummyReleases.length,
       itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-          ReleaseInfo(
+          Release(
         id: dummyReleases[itemIndex].id,
         title: dummyReleases[itemIndex].title,
         artist: dummyReleases[itemIndex].artist,

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:x_release/widgets/release_text.dart';
+import 'package:x_release/widgets/release_text_info.dart';
 
 import '../../constraints.dart';
 import '../../models/music.dart';
 
-class ReleaseInfo extends StatelessWidget {
-  const ReleaseInfo({
+class Release extends StatelessWidget {
+  const Release({
     Key? key,
     required this.id,
     required this.title,
@@ -73,7 +73,8 @@ class ReleaseInfo extends StatelessWidget {
               ),
             ),
           ),
-          ReleaseText(title: title, artist: artist, trackCount: tracks.length)
+          ReleaseTextInfo(
+              title: title, artist: artist, trackCount: tracks.length)
         ],
       ),
     );

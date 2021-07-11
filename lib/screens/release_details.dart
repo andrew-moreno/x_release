@@ -1,9 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:x_release/dummy_data.dart';
 import 'package:x_release/models/music.dart';
-import 'package:x_release/widgets/release_text.dart';
+import 'package:x_release/widgets/release_text_info.dart';
 import '../constraints.dart';
 
 class ReleaseDetails extends StatelessWidget {
@@ -42,7 +41,7 @@ class ReleaseDetails extends StatelessWidget {
                 width: 300,
                 child: ListView(
                   children: [
-                    ReleaseText(
+                    ReleaseTextInfo(
                         title: routeArgs.title,
                         artist: routeArgs.artist,
                         trackCount: routeArgs.tracks.length),

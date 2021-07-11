@@ -3,6 +3,7 @@ import 'package:x_release/constraints.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key, required this.releaseCount}) : super(key: key);
+
   final int releaseCount;
 
   @override

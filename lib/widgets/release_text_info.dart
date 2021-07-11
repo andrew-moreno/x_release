@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../constraints.dart';
 
-class ReleaseText extends StatelessWidget {
-  const ReleaseText({
+class ReleaseTextInfo extends StatelessWidget {
+  const ReleaseTextInfo({
     Key? key,
     required this.title,
     required this.artist,
@@ -39,7 +39,9 @@ class ReleaseText extends StatelessWidget {
             children: [
               _buildInfoContainer(
                   (trackCount == 1) ? "Single" : "Album", kAccentBlue),
-              _buildInfoContainer(trackCount.toString(), kAccentPurple)
+              (trackCount > 1)
+                  ? _buildInfoContainer(trackCount.toString(), kAccentPurple)
+                  : const Spacer() // using as an empty widget for conditional statement
             ],
           ),
         )
