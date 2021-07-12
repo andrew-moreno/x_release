@@ -39,9 +39,9 @@ class ReleaseTextInfo extends StatelessWidget {
             children: [
               _buildInfoContainer(
                   (trackCount == 1) ? "Single" : "Album", kAccentBlue),
-              (trackCount > 1)
-                  ? _buildInfoContainer(trackCount.toString(), kAccentPurple)
-                  : const Spacer() // using as an empty widget for conditional statement
+              if (trackCount > 1)
+                _buildInfoContainer(trackCount.toString(),
+                    kAccentPurple) // using as an empty widget for conditional statement
             ],
           ),
         )

@@ -25,14 +25,16 @@ class HistoryTile extends StatelessWidget {
             height: 50,
           ),
         ),
-        Padding(
+        Container(
           padding: const EdgeInsets.symmetric(horizontal: 15),
+          width: 200,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
                 title,
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                     fontFamily: "DMSans",
                     fontSize: 19,
@@ -41,6 +43,7 @@ class HistoryTile extends StatelessWidget {
               ),
               Text(
                 artist,
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                     fontFamily: "DMSans",
                     fontSize: 15,

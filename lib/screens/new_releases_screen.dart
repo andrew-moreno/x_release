@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../dummy_data.dart';
-import '../widgets/releases_screen/header.dart';
-import '../widgets/releases_screen/history_button.dart';
-import '../widgets/releases_screen/release_carousel.dart';
+import '../widgets/new_releases/new_releases_carousel.dart';
+import '../widgets/new_releases/new_releases_header.dart';
+import '../widgets/new_releases/new_releases_history_button.dart';
 
 class Releases extends StatelessWidget {
   static const routeName = "/";
@@ -18,9 +17,7 @@ class Releases extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Header(
-                releaseCount: dummyReleases.length,
-              ),
+              const Header(),
               const Spacer(),
               ReleaseCarousel(),
               const Spacer(),

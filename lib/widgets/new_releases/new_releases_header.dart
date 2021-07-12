@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:x_release/constraints.dart';
 
-class Header extends StatelessWidget {
-  const Header({Key? key, required this.releaseCount}) : super(key: key);
+import '../../models/release_data.dart';
 
-  final int releaseCount;
+class Header extends StatelessWidget {
+  const Header({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class Header extends StatelessWidget {
           Row(
             children: [
               Text(
-                releaseCount.toString(),
+                ReleaseData().releases.length.toString(),
                 style: Theme.of(context)
                     .textTheme
                     .headline4!

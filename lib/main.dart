@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'constraints.dart';
-import 'dummy_data.dart';
-import 'screens/history.dart';
-import 'screens/release_details.dart';
-import 'screens/releases_screen.dart';
+import 'screens/history_screen.dart';
+import 'screens/new_releases_screen.dart';
+import 'screens/release_details_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -43,8 +42,8 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           Releases.routeName: (ctx) => Releases(),
-          History.routeName: (ctx) => History(),
-          ReleaseDetails.routeName: (ctx) => ReleaseDetails()
+          History.routeName: (ctx) => const History(),
+          ReleaseDetails.routeName: (ctx) => const ReleaseDetails()
         },
       ),
     );

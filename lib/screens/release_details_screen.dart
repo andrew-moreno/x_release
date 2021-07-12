@@ -1,14 +1,13 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:x_release/models/music.dart';
-import 'package:x_release/widgets/release_text_info.dart';
+
 import '../constraints.dart';
+import '../models/music.dart';
+import '../widgets/release_text_info.dart';
+import '../widgets/release_details/release_details_track_list.dart';
 
 class ReleaseDetails extends StatelessWidget {
-  const ReleaseDetails({
-    Key? key,
-  }) : super(key: key);
+  const ReleaseDetails({Key? key}) : super(key: key);
 
   static const routeName = "/release-details";
 
@@ -50,38 +49,7 @@ class ReleaseDetails extends StatelessWidget {
                       shrinkWrap: true,
                       itemCount: routeArgs.tracks.length,
                       itemBuilder: (_, index) {
-                        return Container(
-                          margin: const EdgeInsets.only(top: 15),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 7),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.circular(kCornerRadius),
-                              color: kLightBackgroundColor),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                width: 180,
-                                child: Text(
-                                  routeArgs.tracks[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                    fontFamily: "DMSans",
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 17,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              const Icon(
-                                Icons.play_arrow_rounded,
-                                color: kAccentGreen,
-                                size: 30,
-                              )
-                            ],
-                          ),
-                        );
+                        return TrackList(routeArgs: routeArgs, index: index);
                       },
                     ),
                   ],

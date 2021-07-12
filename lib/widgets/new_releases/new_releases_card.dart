@@ -4,8 +4,8 @@ import 'package:x_release/widgets/release_text_info.dart';
 import '../../constraints.dart';
 import '../../models/music.dart';
 
-class Release extends StatelessWidget {
-  const Release({
+class ReleaseCard extends StatelessWidget {
+  const ReleaseCard({
     Key? key,
     required this.id,
     required this.title,
