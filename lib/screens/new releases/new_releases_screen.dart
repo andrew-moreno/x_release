@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/button.dart';
+import '../history/history_screen.dart';
 import 'local widgets/new_releases_carousel.dart';
 import 'local widgets/new_releases_header.dart';
-import 'local widgets/new_releases_history_button.dart';
 
 class Releases extends StatelessWidget {
-  static const routeName = "/";
+  static const routeName = "/releases";
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,11 @@ class Releases extends StatelessWidget {
               const Spacer(),
               ReleaseCarousel(),
               const Spacer(),
-              const HistoryButton(),
+              const Button(
+                route: History.routeName,
+                text: "History",
+                width: 100,
+              ),
             ],
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:x_release/screens/onboarding/onboarding.dart';
 
 import 'constraints.dart';
 import 'screens/history/history_screen.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
+        home: Onboarding(),
         routes: {
           Releases.routeName: (ctx) => Releases(),
           History.routeName: (ctx) => const History(),
