@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'constraints.dart';
-import 'screens/history_screen.dart';
-import 'screens/new_releases_screen.dart';
-import 'screens/release_details_screen.dart';
+import 'screens/history/history_screen.dart';
+import 'screens/new releases/new_releases_screen.dart';
+import 'screens/release details/release_details_screen.dart';
 
 void main() {
   runApp(MyApp());

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:x_release/constraints.dart';
 
-import '../../models/release_data.dart';
+import '../../../models/release_data.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key}) : super(key: key);

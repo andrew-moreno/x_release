@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../constraints.dart';
-import '../../models/music.dart';
+import '../../../constraints.dart';
+import '../../../models/music.dart';
 
 class TrackList extends StatelessWidget {
   const TrackList({
@@ -16,7 +16,7 @@ class TrackList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 15),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(kCornerRadius),

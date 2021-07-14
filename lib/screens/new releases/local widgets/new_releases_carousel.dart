@@ -1,8 +1,8 @@
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
 
-import '../../constraints.dart';
-import '../../models/release_data.dart';
+import '../../../constraints.dart';
+import '../../../models/release_data.dart';
 import 'new_releases_card.dart';
 
 class ReleaseCarousel extends StatelessWidget {

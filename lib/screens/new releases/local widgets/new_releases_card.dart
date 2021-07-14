@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:x_release/widgets/release_text_info.dart';
 
-import '../../constraints.dart';
-import '../../models/music.dart';
+import '../../../constraints.dart';
+import '../../../models/music.dart';
 
 class ReleaseCard extends StatelessWidget {
   const ReleaseCard({
@@ -24,23 +24,23 @@ class ReleaseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          InkWell(
-            onTap: () {
-              Navigator.of(context).pushNamed(
-                "/release-details",
-                arguments: Music(
-                    id: id,
-                    title: title,
-                    artist: artist,
-                    albumArt: albumArt,
-                    releaseDate: "null",
-                    tracks: tracks),
-              );
-            },
-            child: Container(
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).pushNamed(
+            "/release-details",
+            arguments: Music(
+                id: id,
+                title: title,
+                artist: artist,
+                albumArt: albumArt,
+                releaseDate: "null",
+                tracks: tracks),
+          );
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
               height: 350,
               margin: const EdgeInsets.symmetric(vertical: 9),
               padding: const EdgeInsets.all(15),
@@ -72,10 +72,10 @@ class ReleaseCard extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-          ReleaseTextInfo(
-              title: title, artist: artist, trackCount: tracks.length)
-        ],
+            ReleaseTextInfo(
+                title: title, artist: artist, trackCount: tracks.length)
+          ],
+        ),
       ),
     );
   }

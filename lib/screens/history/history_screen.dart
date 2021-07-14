@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../models/release_data.dart';
-import '../widgets/history/history_header.dart';
-import '../widgets/history/history_tile.dart';
+import '../../models/release_data.dart';
+import 'local widgets/history_header.dart';
+import 'local widgets/history_tile.dart';
 
 class History extends StatelessWidget {
   const History({Key? key}) : super(key: key);
