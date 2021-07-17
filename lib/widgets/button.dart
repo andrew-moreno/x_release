@@ -20,6 +20,7 @@ class Button extends StatelessWidget {
           route,
         );
       },
+      borderRadius: BorderRadius.circular(100),
       child: Ink(
         padding: const EdgeInsets.symmetric(vertical: 8),
         width: width,

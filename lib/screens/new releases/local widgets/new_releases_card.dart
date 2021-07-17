@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:x_release/screens/new%20releases/local%20widgets/new_releases_albumart.dart';
 import 'package:x_release/widgets/release_text_info.dart';
 
-import '../../../constraints.dart';
 import '../../../models/music.dart';
 
 class ReleaseCard extends StatelessWidget {
@@ -40,38 +40,7 @@ class ReleaseCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 350,
-              margin: const EdgeInsets.symmetric(vertical: 9),
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kCornerRadius),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(albumArt),
-                ),
-              ),
-              alignment: Alignment.bottomRight,
-              child: InkWell(
-                onTap: () {
-                  print("button clicked");
-                },
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  alignment: Alignment.centerRight,
-                  height: 40,
-                  width: 40,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: kAccentGreen,
-                  ),
-                  child: const Icon(
-                    Icons.play_arrow_rounded,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
+            AlbumArt(albumArt: albumArt),
             ReleaseTextInfo(
                 title: title, artist: artist, trackCount: tracks.length)
           ],

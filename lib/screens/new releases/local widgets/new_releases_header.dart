@@ -26,8 +26,9 @@ class Header extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline4,
               ),
               const Spacer(),
-              GestureDetector(
+              InkWell(
                 onTap: () {},
+                borderRadius: BorderRadius.circular(100),
                 child: const Icon(
                   Icons.settings,
                   color: Colors.white,
