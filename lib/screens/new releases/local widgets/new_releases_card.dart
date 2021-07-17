@@ -51,9 +51,8 @@ class ReleaseCard extends StatelessWidget {
                     tag: "albumArt$id",
                     child: _AlbumArt(albumArt: albumArt),
                   ),
-                  Hero(
-                    tag: "playButton$id",
-                    child: const _PlayButton(),
+                  _PlayButton(
+                    id: id,
                   ),
                 ],
               ),
@@ -97,7 +96,10 @@ class _AlbumArt extends StatelessWidget {
 class _PlayButton extends StatelessWidget {
   const _PlayButton({
     Key? key,
+    required this.id,
   }) : super(key: key);
+
+  final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -105,22 +107,25 @@ class _PlayButton extends StatelessWidget {
       onTap: () {
         print("button clicked");
       },
-      child: Container(
-        margin: const EdgeInsets.all(15),
-        padding: const EdgeInsets.all(8),
-        alignment: Alignment.centerRight,
-        height: 40,
-        width: 40,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: kAccentGreen,
-          boxShadow: [
-            kBoxShadow,
-          ],
-        ),
-        child: const Icon(
-          Icons.play_arrow_rounded,
-          color: Colors.white,
+      child: Hero(
+        tag: "playButton$id",
+        child: Container(
+          margin: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(8),
+          alignment: Alignment.centerRight,
+          height: 40,
+          width: 40,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: kAccentGreen,
+            boxShadow: [
+              kBoxShadow,
+            ],
+          ),
+          child: const Icon(
+            Icons.play_arrow_rounded,
+            color: Colors.white,
+          ),
         ),
       ),
     );
