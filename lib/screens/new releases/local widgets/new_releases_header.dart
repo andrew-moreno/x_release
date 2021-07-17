@@ -26,29 +26,62 @@ class Header extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline4,
               ),
               const Spacer(),
-              InkWell(
-                onTap: () {},
-                borderRadius: BorderRadius.circular(100),
-                child: const Icon(
-                  Icons.settings,
-                  color: Colors.white,
-                  size: 30,
-                ),
-              ),
+              const _SettingsButton(),
             ],
           ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: SizedBox(
-              width: 200,
-              child: Text(
-                "New songs from Rex Orange County, Sam Evian, and Jaden",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-            ),
-          )
+          const _ArtistSubtitle()
         ],
       ),
     );
   }
+}
+
+class _SettingsButton extends StatelessWidget {
+  const _SettingsButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {},
+      borderRadius: BorderRadius.circular(100),
+      child: const Icon(
+        Icons.settings,
+        color: Colors.white,
+        size: 30,
+      ),
+    );
+  }
+}
+
+class _ArtistSubtitle extends StatelessWidget {
+  const _ArtistSubtitle({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: SizedBox(
+        child: Text(
+          _subtitleBuilder(),
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
+      ),
+    );
+  }
+}
+
+String _subtitleBuilder() {
+  final text = StringBuffer();
+
+  text.write("New releases from ");
+  for (var i = 0; i < ReleaseData().releases.length - 1; i++) {
+    text.write("${ReleaseData().releases[i].artist}, ");
+  }
+  text.write(
+      "and ${ReleaseData().releases[ReleaseData().releases.length - 1].artist}");
+  return text.toString();
 }

@@ -21,26 +21,37 @@ class AlbumArt extends StatelessWidget {
         ),
       ),
       alignment: Alignment.bottomRight,
-      child: InkWell(
-        onTap: () {
-          print("button clicked");
-        },
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          alignment: Alignment.centerRight,
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: kAccentGreen,
-            boxShadow: [
-              kBoxShadow,
-            ],
-          ),
-          child: const Icon(
-            Icons.play_arrow_rounded,
-            color: Colors.white,
-          ),
+      child: const _PlayButton(),
+    );
+  }
+}
+
+class _PlayButton extends StatelessWidget {
+  const _PlayButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        print("button clicked");
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        alignment: Alignment.centerRight,
+        height: 40,
+        width: 40,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: kAccentGreen,
+          boxShadow: [
+            kBoxShadow,
+          ],
+        ),
+        child: const Icon(
+          Icons.play_arrow_rounded,
+          color: Colors.white,
         ),
       ),
     );

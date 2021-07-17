@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../constraints.dart';
 import '../../../models/music.dart';
 
-class TrackList extends StatelessWidget {
-  const TrackList({
+class TrackTile extends StatelessWidget {
+  const TrackTile({
     Key? key,
     required this.routeArgs,
     required this.index,
