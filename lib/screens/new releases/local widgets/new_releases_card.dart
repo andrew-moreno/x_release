@@ -49,31 +49,11 @@ class ReleaseCard extends StatelessWidget {
                 children: [
                   Hero(
                     tag: "albumArt$id",
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(kCornerRadius),
-                      child: Image.asset(
-                        albumArt,
-                        height: 350,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                    child: _AlbumArt(albumArt: albumArt),
                   ),
                   Hero(
                     tag: "playButton$id",
-                    child: Container(
-                      margin: const EdgeInsets.all(15),
-                      padding: const EdgeInsets.all(8),
-                      height: 40,
-                      width: 40,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: kAccentGreen,
-                      ),
-                      child: const Icon(
-                        Icons.play_arrow_rounded,
-                        color: Colors.white,
-                      ),
-                    ),
+                    child: const _PlayButton(),
                   ),
                 ],
               ),
@@ -81,9 +61,66 @@ class ReleaseCard extends StatelessWidget {
             Hero(
               tag: "textInfo$id",
               child: ReleaseTextInfo(
-                  title: title, artist: artist, trackCount: tracks.length),
+                title: title,
+                artist: artist,
+                trackCount: tracks.length,
+              ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _AlbumArt extends StatelessWidget {
+  const _AlbumArt({
+    Key? key,
+    required this.albumArt,
+  }) : super(key: key);
+
+  final String albumArt;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(kCornerRadius),
+      child: Image.asset(
+        albumArt,
+        height: 350,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+}
+
+class _PlayButton extends StatelessWidget {
+  const _PlayButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        print("button clicked");
+      },
+      child: Container(
+        margin: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(8),
+        alignment: Alignment.centerRight,
+        height: 40,
+        width: 40,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: kAccentGreen,
+          boxShadow: [
+            kBoxShadow,
+          ],
+        ),
+        child: const Icon(
+          Icons.play_arrow_rounded,
+          color: Colors.white,
         ),
       ),
     );
