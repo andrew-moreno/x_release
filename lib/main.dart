@@ -45,7 +45,6 @@ class MyApp extends StatelessWidget {
         routes: {
           Releases.routeName: (ctx) => Releases(),
           History.routeName: (ctx) => const History(),
-          ReleaseDetails.routeName: (ctx) => const ReleaseDetails()
         },
       ),
     );

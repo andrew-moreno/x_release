@@ -16,36 +16,38 @@ class ReleaseTextInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: Theme.of(context)
-              .textTheme
-              .headline4!
-              .copyWith(fontSize: 27, height: 1.3),
-        ),
-        Text(
-          artist,
-          style: Theme.of(context)
-              .textTheme
-              .headline5!
-              .copyWith(fontSize: 18, height: 1.3),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 7),
-          child: Row(
-            children: [
-              _buildInfoContainer(
-                  (trackCount == 1) ? "Single" : "Album", kAccentBlue),
-              if (trackCount > 1)
-                _buildInfoContainer(trackCount.toString(),
-                    kAccentPurple) // using as an empty widget for conditional statement
-            ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: Theme.of(context)
+                .textTheme
+                .headline4!
+                .copyWith(fontSize: 27, height: 1.3),
           ),
-        )
-      ],
+          Text(
+            artist,
+            style: Theme.of(context)
+                .textTheme
+                .headline5!
+                .copyWith(fontSize: 18, height: 1.3),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 7),
+            child: Row(
+              children: [
+                _buildInfoContainer(
+                    (trackCount == 1) ? "Single" : "Album", kAccentBlue),
+                if (trackCount > 1)
+                  _buildInfoContainer("$trackCount songs",
+                      kAccentPurple) // using as an empty widget for conditional statement
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -60,8 +62,12 @@ Container _buildInfoContainer(String text, Color color) {
     ),
     child: Text(
       text,
-      style:
-          const TextStyle(fontFamily: "DM_Sans", fontWeight: FontWeight.w700),
+      style: const TextStyle(
+          fontFamily: "DM_Sans",
+          fontWeight: FontWeight.w700,
+          fontSize: 14,
+          color: kDarkBackgroundColor,
+          decoration: TextDecoration.none),
     ),
   );
 }
