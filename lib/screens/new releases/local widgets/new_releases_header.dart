@@ -46,10 +46,13 @@ class _SettingsButton extends StatelessWidget {
     return InkWell(
       onTap: () {},
       borderRadius: BorderRadius.circular(100),
-      child: const Icon(
-        Icons.settings,
-        color: Colors.white,
-        size: 30,
+      child: const Padding(
+        padding: EdgeInsets.all(5.0),
+        child: Icon(
+          Icons.settings,
+          color: Colors.white,
+          size: 30,
+        ),
       ),
     );
   }
