@@ -41,11 +41,10 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        home: Onboarding(),
+        home: const Onboarding(),
         routes: {
           Releases.routeName: (ctx) => Releases(),
           History.routeName: (ctx) => const History(),
-          ReleaseDetails.routeName: (ctx) => const ReleaseDetails()
         },
       ),
     );

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../../../constraints.dart';
-import '../../../models/music.dart';
 
-class TrackList extends StatelessWidget {
-  const TrackList({
+class TrackTile extends StatelessWidget {
+  const TrackTile({
     Key? key,
-    required this.routeArgs,
+    required this.tracks,
     required this.index,
   }) : super(key: key);
 
-  final Music routeArgs;
+  final List<String> tracks;
   final int index;
 
   @override
@@ -27,7 +26,7 @@ class TrackList extends StatelessWidget {
           SizedBox(
             width: 180,
             child: Text(
-              routeArgs.tracks[index],
+              tracks[index],
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 fontFamily: "DMSans",

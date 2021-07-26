@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:x_release/screens/release%20details/release_details_screen.dart';
 import 'package:x_release/widgets/release_text_info.dart';
 
 import '../../../constraints.dart';
-import '../../../models/music.dart';
 
 class ReleaseCard extends StatelessWidget {
   const ReleaseCard({
@@ -24,57 +24,108 @@ class ReleaseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: InkWell(
+      child: GestureDetector(
         onTap: () {
-          Navigator.of(context).pushNamed(
-            "/release-details",
-            arguments: Music(
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => ReleaseDetails(
                 id: id,
                 title: title,
                 artist: artist,
                 albumArt: albumArt,
+                tracks: tracks,
                 releaseDate: "null",
-                tracks: tracks),
+              ),
+            ),
           );
         },
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 350,
               margin: const EdgeInsets.symmetric(vertical: 9),
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kCornerRadius),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(albumArt),
-                ),
-              ),
-              alignment: Alignment.bottomRight,
-              child: InkWell(
-                onTap: () {
-                  print("button clicked");
-                },
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  alignment: Alignment.centerRight,
-                  height: 40,
-                  width: 40,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: kAccentGreen,
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Hero(
+                    tag: "albumArt$id",
+                    child: _AlbumArt(albumArt: albumArt),
                   ),
-                  child: const Icon(
-                    Icons.play_arrow_rounded,
-                    color: Colors.white,
+                  _PlayButton(
+                    id: id,
                   ),
-                ),
+                ],
               ),
             ),
-            ReleaseTextInfo(
-                title: title, artist: artist, trackCount: tracks.length)
+            Hero(
+              tag: "textInfo$id",
+              child: ReleaseTextInfo(
+                title: title,
+                artist: artist,
+                trackCount: tracks.length,
+              ),
+            ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _AlbumArt extends StatelessWidget {
+  const _AlbumArt({
+    Key? key,
+    required this.albumArt,
+  }) : super(key: key);
+
+  final String albumArt;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(kCornerRadius),
+      child: Image.asset(
+        albumArt,
+        height: 350,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+}
+
+class _PlayButton extends StatelessWidget {
+  const _PlayButton({
+    Key? key,
+    required this.id,
+  }) : super(key: key);
+
+  final int id;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        print("button clicked");
+      },
+      child: Hero(
+        tag: "playButton$id",
+        child: Container(
+          margin: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(8),
+          alignment: Alignment.centerRight,
+          height: 40,
+          width: 40,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: kAccentGreen,
+            boxShadow: [
+              kBoxShadow,
+            ],
+          ),
+          child: const Icon(
+            Icons.play_arrow_rounded,
+            color: Colors.white,
+          ),
         ),
       ),
     );
