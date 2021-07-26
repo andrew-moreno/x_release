@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../constraints.dart';
 import '../../widgets/button.dart';
 import '../new releases/new_releases_screen.dart';
+import '../../services/spotify.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({Key? key}) : super(key: key);
@@ -41,8 +42,13 @@ class Onboarding extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 100),
-                child: const Button(
-                  route: Releases.routeName,
+                child: Button(
+                  onTap: () {
+                    Spotify().getAuthenticationToken().then((response) {
+                      Spotify().fetchFollows(response);
+                    });
+                    //Navigator.of(context).pushNamed(Releases.routeName);
+                  },
                   text: "Login to Spotify",
                   width: 300,
                 ),

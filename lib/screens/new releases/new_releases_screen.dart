@@ -22,8 +22,12 @@ class Releases extends StatelessWidget {
               const Spacer(),
               ReleaseCarousel(),
               const Spacer(),
-              const Button(
-                route: History.routeName,
+              Button(
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    History.routeName,
+                  );
+                },
                 text: "History",
                 width: 100,
               ),
