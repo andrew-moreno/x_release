@@ -8,7 +8,7 @@ import 'images.dart';
 class Items {
   final ExternalUrls? externalUrls;
   final Followers? followers;
-  final List<String>? genres;
+  final List<dynamic>? genres;
   final String? href;
   final String? id;
   final List<Images>? images;
@@ -43,7 +43,7 @@ class Items {
         followers: json['followers'] == null
             ? null
             : Followers.fromJson(json['followers'] as Map<String, dynamic>),
-        genres: json['genres'] as List<String>?,
+        genres: json['genres'] as List<dynamic>,
         href: json['href'] as String?,
         id: json['id'] as String?,
         images: (json['images'] as List<dynamic>?)

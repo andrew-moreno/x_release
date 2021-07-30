@@ -44,8 +44,12 @@ class Onboarding extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 100),
                 child: Button(
                   onTap: () {
-                    Spotify().getAuthenticationToken().then((response) {
-                      Spotify().fetchFollows(response);
+                    Spotify.getAuthenticationToken().then((response) {
+                      Spotify.getFollows(response).then((artistList) {
+                        Spotify.postArtists(artistList);
+                        Spotify.getArtistReleases(
+                            response, "0NB5HROxc8dDBXpkIi1v3d");
+                      });
                     });
                     //Navigator.of(context).pushNamed(Releases.routeName);
                   },
