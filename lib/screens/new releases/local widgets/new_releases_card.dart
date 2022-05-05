@@ -49,10 +49,33 @@ class ReleaseCard extends StatelessWidget {
                 children: [
                   Hero(
                     tag: "albumArt$id",
-                    child: _AlbumArt(albumArt: albumArt),
+                    child: _albumArt(albumArt),
                   ),
-                  _PlayButton(
-                    id: id,
+                  InkWell(
+                    onTap: () {
+                      print("button clicked");
+                    },
+                    child: Hero(
+                      tag: "playButton$id",
+                      child: Container(
+                        margin: const EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(8),
+                        alignment: Alignment.centerRight,
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: kAccentGreen,
+                          boxShadow: [
+                            kBoxShadow,
+                          ],
+                        ),
+                        child: const Icon(
+                          Icons.play_arrow_rounded,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -70,63 +93,14 @@ class ReleaseCard extends StatelessWidget {
       ),
     );
   }
-}
 
-class _AlbumArt extends StatelessWidget {
-  const _AlbumArt({
-    Key? key,
-    required this.albumArt,
-  }) : super(key: key);
-
-  final String albumArt;
-
-  @override
-  Widget build(BuildContext context) {
+  ClipRRect _albumArt(String image) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(kCornerRadius),
       child: Image.asset(
-        albumArt,
+        image,
         height: 350,
         fit: BoxFit.cover,
-      ),
-    );
-  }
-}
-
-class _PlayButton extends StatelessWidget {
-  const _PlayButton({
-    Key? key,
-    required this.id,
-  }) : super(key: key);
-
-  final int id;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        print("button clicked");
-      },
-      child: Hero(
-        tag: "playButton$id",
-        child: Container(
-          margin: const EdgeInsets.all(15),
-          padding: const EdgeInsets.all(8),
-          alignment: Alignment.centerRight,
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: kAccentGreen,
-            boxShadow: [
-              kBoxShadow,
-            ],
-          ),
-          child: const Icon(
-            Icons.play_arrow_rounded,
-            color: Colors.white,
-          ),
-        ),
       ),
     );
   }

@@ -18,25 +18,15 @@ class HistoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        _AlbumArt(albumArt: albumArt),
-        _TextInfo(title: title, artist: artist),
+        _albumArt(albumArt),
+        _textInfo(title, artist),
         const Spacer(),
-        _ReleaseDate(releaseDate: releaseDate),
+        _releaseDate(releaseDate),
       ],
     );
   }
-}
 
-class _AlbumArt extends StatelessWidget {
-  const _AlbumArt({
-    Key? key,
-    required this.albumArt,
-  }) : super(key: key);
-
-  final String albumArt;
-
-  @override
-  Widget build(BuildContext context) {
+  ClipRRect _albumArt(String albumArt) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(7),
       child: Image.asset(
@@ -45,20 +35,8 @@ class _AlbumArt extends StatelessWidget {
       ),
     );
   }
-}
 
-class _TextInfo extends StatelessWidget {
-  const _TextInfo({
-    Key? key,
-    required this.title,
-    required this.artist,
-  }) : super(key: key);
-
-  final String title;
-  final String artist;
-
-  @override
-  Widget build(BuildContext context) {
+  Container _textInfo(String title, String artist) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       width: 200,
@@ -88,18 +66,8 @@ class _TextInfo extends StatelessWidget {
       ),
     );
   }
-}
 
-class _ReleaseDate extends StatelessWidget {
-  const _ReleaseDate({
-    Key? key,
-    required this.releaseDate,
-  }) : super(key: key);
-
-  final String releaseDate;
-
-  @override
-  Widget build(BuildContext context) {
+  Text _releaseDate(String releaseDate) {
     return Text(
       releaseDate.toString(),
       style: const TextStyle(

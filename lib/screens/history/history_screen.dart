@@ -20,10 +20,7 @@ class History extends StatelessWidget {
               floating: true,
               title: Text(
                 "History",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4!
-                    .copyWith(color: kAccentRed),
+                style: Theme.of(context).textTheme.headline4,
               ),
               elevation: 100,
             ),
