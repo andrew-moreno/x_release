@@ -2,4 +2,4 @@
 
 Cool project wowee!
 
-![Artboard – 3](https://user-images.githubusercontent.com/46725252/173268817-46a408e1-5085-48f8-8926-d4837eccb642.png)
+![Artboard – 3](https://user-images.githubusercontent.com/46725252/173268894-7893ad8e-b27d-496e-9330-0058afd77dce.png)
